@@ -1,0 +1,47 @@
+{% extends 'Root_html.html' %}
+{% block title %}{{  data['memberId']['username'] }}{% endblock %}
+{% block content %}
+    <div class="container">
+<form method="post" class="col-md-6 align-items-center" action="{{ url_for('home.update_data',id=data['_id']) }}">
+    <h5 class="m-2" style="color: darkslategrey">{{ data['memberId']['username'] }}</h5>
+
+   <div class="col-auto m-1">
+     <h6>Total Sari</h6>
+    <label class="visually-hidden" for="autoSizingInput">Total Sari</label>
+    <input type="number" value="{{ data['total_p'] }}" class="form-control" name="total_p" id="autoSizingInput" placeholder="Total Sari" required>
+  </div>
+
+
+   <div class="col-auto m-1">
+       <h6>Design</h6>
+    <label class="visually-hidden" for="autoSizingInput">design</label>
+    <input type="text" value="{{ data['design'] }}" class="form-control" name="design" id="autoSizingInput" placeholder="design" required>
+  </div>
+
+
+  <div class="col-auto m-1">
+    <label for="exampleColorInput" class="form-label">Color picker</label>
+    <input type="color" class="form-control form-control-color" name="color" id="exampleColorInput" value="{{ data['color'] }}" title="Choose your color">
+  </div>
+
+
+  <div class="col-auto m-1">
+      <h6>Return Sari</h6>
+    <label class="visually-hidden" for="autoSizingInput">Return Sari</label>
+    <input type="number" value="{{ data['return_p'] }}" class="form-control" name="return_p" id="autoSizingInput" placeholder="Return Sari" required>
+  </div>
+
+
+  <div class="col-auto m-1">
+      <h6>Price</h6>
+    <label class="visually-hidden" for="autoSizingInput">price</label>
+    <input type="number" value="{{ data['price'] }}" class="form-control" name="price" id="autoSizingInput" placeholder="price" required>
+  </div>
+
+  <div class="col-auto m-1">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+</div>
+{% endblock %}

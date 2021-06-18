@@ -26,7 +26,7 @@ def update_data(id):
         query = """query getData($id:String!){getData(at:$id){_id,total_p,return_p,price,color,date,design,
         memberId{_id,username}}} """
         data = fetch_data.post(query, id=id)
-        return render_template("Home/editData.html", data=data)
+        return render_template("Home/editData.html", data=data['data']['getData'])
     if request.method == "POST":
         total_p = int(request.form['total_p'])
         design = request.form['design']
@@ -38,7 +38,7 @@ def update_data(id):
         $id:String!){ editDataField(input:{ id:$id, total_p:$total_p, design:$design, return_p:$return_p, price:$price, 
         color:$color}){ _id, date, month, memberId, total_p, design, price, color, amount, member_amount } } """
         e_data = u_data.post(query, id=id, total_p=total_p, design=design, return_p=return_p, price=price, color=color)
-        return e_data
+        return redirect(url_for("home.homes"))
 
 
 @home.route("/addData", methods=["POST"])
