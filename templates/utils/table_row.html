@@ -1,0 +1,31 @@
+<tr>
+    <th scope="row">{{ data['date'] }}</th>
+    <td>{{ data['memberId']['username'] }}</td>
+    <td>{{ data['total_p'] }}</td>
+    <td>{{ data['design'] }}</td>
+    <td style="background-color: {{ data['color'] }}">color</td>
+    {% if data['return_p'] == 0 %}
+    <td style="color: darkred">{{ data['return_p'] }}</td>
+    {% endif %}
+    {% if data['return_p'] != 0 and data['return_p'] < data['total_p'] %}
+    <td style="color: darkorange ">{{ data['return_p'] }}</td>
+    {% endif %}
+    {% if data['return_p'] == data['total_p'] %}
+    <td style="color: darkgreen ">{{ data['return_p'] }}</td>
+    {% endif %}
+    <th>{{ data['price'] }}</th>
+    <td>{{ data['amount'] }}</td>
+    {% if data['member_amount'] == 0 %}
+    <td style="color: darkred">{{ data['member_amount'] }}</td>
+    {% endif %}
+    {% if data['member_amount'] != 0 and data['member_amount'] < data['amount'] %}
+    <td style="color: darkorange ">{{ data['member_amount'] }}</td>
+    {% endif %}
+    {% if data['member_amount'] == data['amount'] %}
+    <td style="color: darkgreen ">{{ data['member_amount'] }}</td>
+    {% endif %}
+    <td>
+        <a href="{{ url_for('member.data.member_Data', id=data['memberId']['_id']) }}" type="button" class="btn btn-outline-secondary">View</a>
+        <a href="{{ url_for('home.update_data', id=data['_id']) }}" type="button" class="btn btn-outline-secondary">Update</a>
+    </td>
+    </tr>

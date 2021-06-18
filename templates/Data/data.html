@@ -28,7 +28,7 @@
                   <td>{{ data['memberId']['username'] }}</td>
                   <td>{{ data['total_p'] }}</td>
                   <td>{{ data['design'] }}</td>
-                  <td>{{ data['color'] }}</td>
+                  <td style="background-color: {{ data['color'] }}">color</td>
                   {% if data['return_p'] == 0 %}
                     <td style="color: darkred">{{ data['return_p'] }}</td>
                   {% endif %}

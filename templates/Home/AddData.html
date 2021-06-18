@@ -1,0 +1,59 @@
+<a type="button" class="btn btn-outline-success m-3" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Add Member Data</a>
+<div class="row mb-2" >
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body " style="background-color:  #d1f2eb ">
+
+
+<form method="post" class="row gy-2 gx-3 align-items-center" action="{{ url_for('home.add_data') }}">
+
+  <div class="col-md-3">
+    <label for="validationDefault04" class="form-label">State</label>
+    <select class="form-select" id="validationDefault04" name="memberId" required>
+      <option selected disabled value="">Choose Member</option>
+        {% for m in members %}
+      <option value="{{ m['_id'] }}">{{ m['username'] }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+
+   <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">Total Sari</label>
+    <input type="number" class="form-control" name="total_p" id="autoSizingInput" placeholder="Total Sari" required>
+  </div>
+
+
+   <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">design</label>
+    <input type="text" class="form-control" name="design" id="autoSizingInput" placeholder="design" required>
+  </div>
+
+
+  <div class="col-auto">
+    <label for="exampleColorInput" class="form-label">Color picker</label>
+    <input type="color" class="form-control form-control-color" name="color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+  </div>
+
+
+  <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">Return Sari</label>
+    <input type="number" class="form-control" name="return_p" id="autoSizingInput" placeholder="Return Sari" required>
+  </div>
+
+
+  <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">price</label>
+    <input type="number" class="form-control" name="price" id="autoSizingInput" placeholder="price" required>
+  </div>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
