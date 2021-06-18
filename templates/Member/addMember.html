@@ -1,0 +1,29 @@
+<a type="button" class="btn btn-outline-success m-3" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Add Member</a>
+<div class="row mb-2" >
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body " style="background-color:  #d1f2eb ">
+
+
+        <form method="post" class="row gy-2 gx-3 align-items-center" action="{{ url_for('member.member_add') }}">
+  <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">Name</label>
+    <input type="text" class="form-control" name="username" id="autoSizingInput" placeholder="Username" required>
+  </div>
+   <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">Address</label>
+    <input type="text" class="form-control" name="address" id="autoSizingInput" placeholder="Address" required>
+  </div>
+   <div class="col-auto">
+    <label class="visually-hidden" for="autoSizingInput">Phon Number</label>
+    <input type="text" class="form-control" name="phonNumber" id="autoSizingInput" placeholder="+91" required>
+  </div>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>

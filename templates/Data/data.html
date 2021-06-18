@@ -1,0 +1,62 @@
+{% extends "Root_html.html" %}
+{% block title %}Data{% endblock %}
+
+{% block content %}
+{% include "utils/header.html" %}
+    <div class="container">
+     <a type="button" class="btn btn-outline-success mt-3 mb-3">Add Member Data</a>
+     <div class="table-responsive m-1">
+
+        <table class="table table-bordered border border-success">
+          <thead>
+           <tr>
+             <th scope="col">date</th>
+             <th scope="col">member</th>
+             <th scope="col">total sari</th>
+             <th scope="col">design</th>
+             <th scope="col">color</th>
+             <th scope="col">return sari</th>
+             <th scope="col">price</th>
+             <th scope="col">amount</th>
+             <th scope="col">member amount</th>
+           </tr>
+          </thead>
+            <tbody>
+              {% for data in datas %}
+                <tr>
+                  <th scope="row">{{ data['date'] }}</th>
+                  <td>{{ data['memberId']['username'] }}</td>
+                  <td>{{ data['total_p'] }}</td>
+                  <td>{{ data['design'] }}</td>
+                  <td>{{ data['color'] }}</td>
+                  {% if data['return_p'] == 0 %}
+                    <td style="color: darkred">{{ data['return_p'] }}</td>
+                  {% endif %}
+                  {% if data['return_p'] != 0 and data['return_p'] < data['total_p'] %}
+                      <td style="color: darkorange ">{{ data['return_p'] }}</td>
+                  {% endif %}
+                  {% if data['return_p'] == data['total_p'] %}
+                     <td style="color: darkgreen ">{{ data['return_p'] }}</td>
+                  {% endif %}
+                     <th>{{ data['price'] }}</th>
+                     <td>{{ data['amount'] }}</td>
+                  {% if data['member_amount'] == 0 %}
+                     <td style="color: darkred">{{ data['member_amount'] }}</td>
+                  {% endif %}
+                  {% if data['member_amount'] != 0 and data['member_amount'] < data['amount'] %}
+                  <td style="color: darkorange ">{{ data['member_amount'] }}</td>
+                  {% endif %}
+                  {% if data['member_amount'] == data['amount'] %}
+                  <td style="color: darkgreen ">{{ data['member_amount'] }}</td>
+                  {% endif %}
+                  <td>
+                      <a type="button" class="btn btn-outline-secondary m-1">Update</a>
+                      <a type="button" class="btn btn-outline-secondary m-1">Delete</a>
+                  </tr>
+                 {% endfor %}
+                  </tbody>
+        </table>
+     </div>
+    {% include "utils/pagenation.html" %}
+    </div>
+{% endblock %}
